@@ -48,7 +48,7 @@ open class TKBaseSwitch: UIControl {
     // MARK: - Getter
 
     
-    final public func setOn(_ on: Bool, animate: Bool = true) {
+    @objc final public func setOn(_ on: Bool, animate: Bool = true) {
         guard on != isOn else { return }
         changeValue()
 
@@ -91,7 +91,7 @@ open class TKBaseSwitch: UIControl {
     @objc internal func changeValue(){
         on = !on
         valueChange?(!isOn)
-        sendActions(for: UIControlEvents.valueChanged);
+        sendActions(for: UIControl.Event.valueChanged);
     }
 
 }
